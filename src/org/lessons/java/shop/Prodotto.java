@@ -10,7 +10,7 @@ public class Prodotto {
     private String description;
     private double price;
     private double vat;
-
+    private Categoria category;
 
     //COSTRUTTORI
 
@@ -18,8 +18,8 @@ public class Prodotto {
         createCode();
         this.name = name;
         this.description = description;
-        this.price = price;
-        this.vat = vat;
+        this.price = valueOrDefault(price);
+        this.vat = valueOrDefault(vat);
     }
 
 
@@ -45,6 +45,10 @@ public class Prodotto {
     public double getVat() {
         return vat;
     }
+    public Categoria getCategory() {
+        return category;
+    }
+
     //SETTER
 
     public void setName(String name) {
@@ -61,6 +65,9 @@ public class Prodotto {
 
     public void setVat(double vat) {
         this.vat = valueOrDefault(vat);
+    }
+    public void setCategory(Categoria category) {
+        this.category = category;
     }
 
     //METODI
