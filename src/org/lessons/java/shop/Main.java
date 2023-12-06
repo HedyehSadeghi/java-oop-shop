@@ -29,7 +29,7 @@ public class Main {
         System.out.println("descrizione: " +prodotto2.getDescription());
         System.out.println("prezzo con iva: " +prodotto2.getPriceWithVat()+ "€");
         prodotto2.setCategory(vegetale);
-        System.out.println("categoria:"+ prodotto2.getCategory().toString());
+        System.out.println("categoria: "+ prodotto2.getCategory().toString());
         System.out.println("categoria-nome: "+ prodotto2.getCategory().getName());
         System.out.println("scegli un nuovo prezzo: ");
         prodotto2.setPrice(Double.parseDouble(scanner.nextLine()));
