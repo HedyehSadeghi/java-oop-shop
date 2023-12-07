@@ -14,13 +14,32 @@ public class Prodotto {
 
     //COSTRUTTORI
 
-    public Prodotto(String name, String description, double price, double vat) {
+    public Prodotto(String name, String description, double price, double vat)throws IllegalArgumentException {
         createCode();
-        this.name = name;
+
+        if(name.isBlank()){
+            throw new NullPointerException();
+        }else {
+            this.name=name;
+        }
+
         this.description = description;
-        this.price = valueOrDefault(price);
-        this.vat = valueOrDefault(vat);
+
+        if(price<0){
+            throw new IllegalArgumentException();
+        }else {
+            this.price=price;
+        }
+
+        if(vat<0){
+            throw new IllegalArgumentException();
+        }else {
+            this.vat= vat;
+        }
+
     }
+
+    //oppure fare un ulteriore costruttore con parametri anche la categoria
 
 
 
@@ -80,10 +99,14 @@ public class Prodotto {
     public String getFullName(){
         return code+"-"+name;
     }
+    @Override
+    public String toString(){
+        return getFullName()+": "+ getPriceWithVat()+" euro ("+ category.getName()+")";
+
+    }
 
 
     //METODI PRIVATE
-
     Random random= new Random();
 
     private void createCode(){
