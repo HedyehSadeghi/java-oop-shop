@@ -71,7 +71,11 @@ public class Prodotto {
     //SETTER
 
     public void setName(String name) {
-        this.name = name;
+        if(name.isBlank()){
+            throw new NullPointerException();
+        }else {
+            this.name=name;
+        }
     }
 
     public void setDescription(String description) {
@@ -79,12 +83,21 @@ public class Prodotto {
     }
 
     public void setPrice(double price) {
-        this.price = valueOrDefault(price);
+        if(price<0){
+            throw new IllegalArgumentException();
+        }else {
+            this.price=price;
+        }
     }
 
     public void setVat(double vat) {
-        this.vat = valueOrDefault(vat);
+        if(vat<0){
+            throw new IllegalArgumentException();
+        }else {
+            this.vat= vat;
+        }
     }
+
     public void setCategory(Categoria category) {
         this.category = category;
     }
